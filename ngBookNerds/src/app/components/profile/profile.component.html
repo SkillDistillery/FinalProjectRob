@@ -1,0 +1,28 @@
+<div id="profileDiv" *ngIf="!editUser">
+  <h1>{{ loggedInUser.firstName }} {{ loggedInUser.lastName }}</h1>
+  <h3>Favorite Books</h3>
+  <ul>
+    <li *ngFor="let book of loggedInUser.favoriteBooks">
+      <h5>{{ book.title }} ({{ book.author.name }})</h5>
+    </li>
+  </ul>
+
+  <button (click)="setEditUser()">Edit Profile</button>
+</div>
+
+<div id="editProfileDiv" *ngIf="editUser">
+  <div *ngFor="let book of books" class="form-check">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      name="favorite"
+      id="fav{{ book.id }}"
+      [(ngModel)]="book.favorited"
+    />
+    <label class="form-check-label" for="fav{{ book.id }}">{{
+      book.title
+    }}</label>
+  </div>
+  <button (click)="editUser = null">Cancel</button>
+  <button (click)="updateProfile()">Save Profile</button>
+</div>

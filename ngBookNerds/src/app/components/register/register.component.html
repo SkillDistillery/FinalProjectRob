@@ -1,0 +1,17 @@
+<div>
+  <form>
+    <div class="row">
+      <label for="username" class="col">User Name</label>
+      <input [(ngModel)]="newUser.username" type="text" name="username" class="col form-input">
+    </div>
+    <div class="row">
+      <label for="password" class="col">Password</label>
+      <input [(ngModel)]="newUser.password" type="password" name="password" class="col form-input">
+    </div>
+    <div class="row">
+    <label for="email" class="col">Email</label>
+    <input [(ngModel)]="newUser.email" type="email" name="email" class="col form-input">
+  </div>
+    <button class="btn btn-success" (click)="register(newUser)">Register Account</button>
+  </form>
+</div>

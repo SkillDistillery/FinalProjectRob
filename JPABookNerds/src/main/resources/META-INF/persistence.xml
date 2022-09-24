@@ -3,6 +3,9 @@
 	<persistence-unit name="JPABookNerds">
 	
 	
+		<class>com.skilldistillery.booknerds.entities.Address</class>
+		<class>com.skilldistillery.booknerds.entities.Author</class>
+		<class>com.skilldistillery.booknerds.entities.Book</class>
 		<class>com.skilldistillery.booknerds.entities.User</class>
 
 		<properties>

@@ -30,6 +30,8 @@ public class SecurityConfig {
         .authorizeRequests()
         .antMatchers(HttpMethod.OPTIONS, "/api/**").permitAll() // For CORS, the preflight request
         .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()     // will hit the OPTIONS on the route
+        .antMatchers(HttpMethod.GET, "/api/books").permitAll() // For CORS, the preflight request
+        .antMatchers(HttpMethod.GET, "/api/authors").permitAll() // For CORS, the preflight request
         .antMatchers("/api/**").authenticated() // Requests for our REST API must be authorized.
         .anyRequest().permitAll()               // All other requests are allowed without authentication.
         .and()
@@ -45,7 +47,7 @@ public class SecurityConfig {
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         // Check if username/password are valid, and user currently allowed to authenticate
-        String userQuery = "SELECT username, password, enabled FROM user WHERE username=?";
+        String userQuery = "SELECT username, password, active FROM user WHERE username=?";
         // Check what authorities the user has
         String authQuery = "SELECT username, role FROM user WHERE username=?";
         auth

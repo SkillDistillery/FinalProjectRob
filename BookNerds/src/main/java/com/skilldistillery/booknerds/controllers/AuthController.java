@@ -42,16 +42,16 @@ public class AuthController {
 	  return authService.getUserByUsername(principal.getName());
 	}
 	
-	// SMOKE TEST ONLY, DELETE/COMMENT OUT LATER
-	@GetMapping("test/users/{userId}")
-	public User getUserForTest(
-	  @PathVariable Integer userId,
-	  HttpServletResponse res
-	) {
-	  User user = authService.getUserById(userId);
-	  if (user == null) {
-	    res.setStatus(404);
-	  }
-	  return user;
-	}
+//	// SMOKE TEST ONLY, DELETE/COMMENT OUT LATER
+//	@GetMapping("test/users/{userId}")
+//	public User getUserForTest(
+//	  @PathVariable Integer userId,
+//	  HttpServletResponse res
+//	) {
+//	  User user = authService.getUserById(userId);
+//	  if (user == null) {
+//	    res.setStatus(404);
+//	  }
+//	  return user;
+//	}
 }
