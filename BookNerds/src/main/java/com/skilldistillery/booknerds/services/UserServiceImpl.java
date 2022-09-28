@@ -32,5 +32,17 @@ public class UserServiceImpl implements UserService {
 		}
 		return null;
 	}
+	
+	@Override
+	public boolean addFavoriteBook(String username, int bookId) {
+		boolean added = false;
+		return added;
+	}
 
+	@Override
+	public boolean removeFavoriteBook(String username, int bookId) {
+		boolean removed = false;
+		return removed;
+	}
+	
 }

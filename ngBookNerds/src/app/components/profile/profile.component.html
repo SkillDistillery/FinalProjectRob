@@ -7,10 +7,30 @@
     </li>
   </ul>
 
-  <button (click)="setEditUser()">Edit Profile</button>
+  <button class="btn btn-success" (click)="setEditUser()">Edit Profile</button>
 </div>
 
 <div id="editProfileDiv" *ngIf="editUser">
+  <form>
+    <div class="row">
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" [(ngModel)]="editUser.firstName">
+    </div>
+    <div class="row">
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" [(ngModel)]="editUser.lastName">
+    </div>
+    <div class="row">
+      <label for="profileImageUrl">Profile Image Url</label>
+      <input type="text" name="profileImageUrl" [(ngModel)]="editUser.profileImageUrl">
+    </div>
+    <div class="row">
+      <label for="dateOfBirth">Date Of Birth</label>
+      <input type="date" name="dateOfBirth" [(ngModel)]="editUser.dateOfBirth">
+    </div>
+    <button class="btn btn-outline-danger" (click)="editUser = null">Cancel</button>
+    <button class="btn btn-outline-success" (click)="updateProfile()">Save Profile</button>
+  </form>
   <div *ngFor="let book of books" class="form-check">
     <input
       class="form-check-input"
@@ -23,6 +43,4 @@
       book.title
     }}</label>
   </div>
-  <button (click)="editUser = null">Cancel</button>
-  <button (click)="updateProfile()">Save Profile</button>
 </div>

@@ -13,10 +13,10 @@
           <a class="nav-link active" aria-current="page" [routerLink]="['/about']">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/book']">Contact Us</a>
+          <a class="nav-link" [routerLink]="['/book']">Books</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/author']">Todo List</a>
+          <a class="nav-link" [routerLink]="['/author']">Authors</a>
         </li>
 
         <li class="nav-item" *ngIf="! loggedIn()">
@@ -25,6 +25,11 @@
 
         <li class="nav-item" *ngIf="! loggedIn()">
           <app-login></app-login>
+        </li>
+
+        <li class="nav-item" *ngIf="loggedIn()">
+          <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+
         </li>
 
         <li class="nav-item" *ngIf="loggedIn()">
